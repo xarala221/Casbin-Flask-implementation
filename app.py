@@ -13,13 +13,7 @@ act = "read"  # the operation that the user performs on the resource.
 
 @app.route("/")
 def index():
-    result = None
-    if e.enforce(sub, obj, act):
-        # permit alice to read data1
-        result = True
-    else:
-        # deny the request, show an error
-        result = False
+    result = e.enforce(sub, obj, act)
     return render_template("index.html", result=result)
 
 
